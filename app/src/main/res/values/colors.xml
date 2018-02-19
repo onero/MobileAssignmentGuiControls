@@ -8,4 +8,12 @@
     <color name="adaminoOrange">#f9845b</color>
     <color name="adaminoBlue">#53bbb4</color>
 
+    <color name="kLindvedYellow">#fff600</color>
+    <color name="kLindvedGreen">#0dc131</color>
+    <color name="kLindvedRed">#ff0000</color>
+    <color name="kLindvedOrange">#ff9000</color>
+    <color name="kLindvedBrown">#593200</color>
+    <color name="kLindvedPurple">#e600f2</color>
+    <color name="kLindvedWhite">#ffffff</color>
+
 </resources>

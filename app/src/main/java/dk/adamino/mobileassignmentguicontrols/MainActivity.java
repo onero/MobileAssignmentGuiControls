@@ -44,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onRasmusClicked(View view) {
-        // TODO Rasmus!
+        Intent intent = HelloWorldActivity.newIntent(this);
+        startActivity(intent);
     }
 
     public void onGreenClicked(View view) {
