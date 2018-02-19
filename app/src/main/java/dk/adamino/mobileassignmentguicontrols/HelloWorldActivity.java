@@ -4,12 +4,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import dk.adamino.mobileassignmentguicontrols.bll.ColorService;
@@ -17,13 +17,10 @@ import dk.adamino.mobileassignmentguicontrols.bll.IColorService;
 
 public class HelloWorldActivity extends AppCompatActivity {
 
-    private final int SQUARE_IMAGE_RES_ID = android.R.drawable.alert_light_frame;
-    private final int BAR_IMAGE_RES_ID = android.R.drawable.bottom_bar;
-    private final int STAR_IMAGE_RES_ID = android.R.drawable.star_big_off;
-
     private RadioButton mSquareRadioButton, mBarRadioButton, mStarRadioButton;
     private ToggleButton mRedToggleButton, mYellowToggleButton, mBlueToggleButton;
     private ImageView mDisplayImageView;
+    private TextView mAlphaTextView;
     private SeekBar mAlphaSeekBar;
 
     private IColorService mColorService;
@@ -48,12 +45,14 @@ public class HelloWorldActivity extends AppCompatActivity {
 
     private void initializeWidgets(){
         mDisplayImageView = findViewById(R.id.ivDisplay);
+        mAlphaTextView = findViewById(R.id.txtAlpha);
+
         mAlphaSeekBar = findViewById(R.id.sBarAlpha);
         mAlphaSeekBar.setProgress(100);
         mAlphaSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                setImageAlpha(progress);
+                setAlpha(progress);
             }
 
             @Override
@@ -117,22 +116,24 @@ public class HelloWorldActivity extends AppCompatActivity {
         int id = radio.getId();
         switch (id){
             case R.id.rbtnSquare:{
-                mDisplayImageView.setImageResource(SQUARE_IMAGE_RES_ID);
+                mDisplayImageView.setImageResource(android.R.drawable.alert_light_frame);
                 break;
             }
             case R.id.rbtnBar:{
-                mDisplayImageView.setImageResource(BAR_IMAGE_RES_ID);
+                mDisplayImageView.setImageResource(android.R.drawable.bottom_bar);
                 break;
             }
             case R.id.rbtnStar:{
-                mDisplayImageView.setImageResource(STAR_IMAGE_RES_ID);
+                mDisplayImageView.setImageResource(android.R.drawable.star_big_off);
                 break;
             }
         }
     }
 
-    private void setImageAlpha(int alphaFromSeekBar){
-        float alpha = alphaFromSeekBar;
+    private void setAlpha(int progressFromSeekBar){
+        mAlphaTextView.setText(progressFromSeekBar + getString(R.string.alpha_percent));
+
+        float alpha = progressFromSeekBar;
         alpha = alpha / 100;
         mDisplayImageView.setAlpha(alpha);
     }
