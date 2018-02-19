@@ -1,5 +1,6 @@
 package dk.adamino.mobileassignmentguicontrols;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -22,7 +23,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onRasmusClicked(View view) {
-        // TODO Rasmus!
+        Intent intent = HelloWorldActivity.newIntent(this);
+        startActivity(intent);
     }
 
     public void onGreenClicked(View view) {
