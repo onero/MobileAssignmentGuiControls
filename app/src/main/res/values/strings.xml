@@ -2,4 +2,6 @@
     <string name="app_name">MobileAssignmentGuiControls</string>
     <string name="rasmus">RASMUS</string>
     <string name="green">GREEN</string>
+    <string name="solveButton">Solve</string>
+    <string name="title">Mystery Lock</string>
 </resources>
