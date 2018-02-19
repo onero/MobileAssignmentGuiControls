@@ -1,16 +1,15 @@
 package dk.adamino.mobileassignmentguicontrols;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CompoundButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
-import android.widget.RadioGroup;
-import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import dk.adamino.mobileassignmentguicontrols.bll.ColorService;
@@ -18,11 +17,14 @@ import dk.adamino.mobileassignmentguicontrols.bll.IColorService;
 
 public class HelloWorldActivity extends AppCompatActivity {
 
-    private TextView mDisplayTextView;
+    private final int SQUARE_IMAGE_RES_ID = android.R.drawable.alert_light_frame;
+    private final int BAR_IMAGE_RES_ID = android.R.drawable.bottom_bar;
+    private final int STAR_RES_ID = android.R.drawable.star_big_off;
+
     private ProgressBar mProgressBar;
-    private RadioButton mRadioButtonOne, mRadioButtonTwo, mRadioButtonThree;
+    private RadioButton mSquareRadioButton, mBarRadioButton, mStarRadioButton;
     private ToggleButton mRedToggleButton, mYellowToggleButton, mBlueToggleButton;
-    private RadioGroup mRadioGroup;
+    private ImageView mDisplayImageView;
 
     private IColorService mColorService;
 
@@ -39,17 +41,36 @@ public class HelloWorldActivity extends AppCompatActivity {
 
         mColorService = new ColorService();
         initializeWidgets();
+        initializeRadioButtons();
+        initializeToggleButtons();
+        updateDisplay();
     }
 
     private void initializeWidgets(){
-        mDisplayTextView = findViewById(R.id.txtDisplayOne);
+        mDisplayImageView = findViewById(R.id.ivDisplay);
 
         mProgressBar = findViewById(R.id.pbProgress);
+    }
 
-        mRadioButtonOne = findViewById(R.id.rbtnValueOne);
-        mRadioButtonTwo = findViewById(R.id.rbtnValueTwo);
-        mRadioButtonThree = findViewById(R.id.rbtnValueThree);
+    private void initializeRadioButtons(){
+        View.OnClickListener ocl = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setImageResId(v);
+            }
+        };
 
+        mSquareRadioButton = findViewById(R.id.rbtnSquare);
+        mSquareRadioButton.setOnClickListener(ocl);
+
+        mBarRadioButton = findViewById(R.id.rbtnBar);
+        mBarRadioButton.setOnClickListener(ocl);
+
+        mStarRadioButton = findViewById(R.id.rbtnStar);
+        mStarRadioButton.setOnClickListener(ocl);
+    }
+
+    private void initializeToggleButtons(){
         CompoundButton.OnCheckedChangeListener occl = new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -72,6 +93,25 @@ public class HelloWorldActivity extends AppCompatActivity {
                 mRedToggleButton.isChecked(),
                 mYellowToggleButton.isChecked(),
                 mBlueToggleButton.isChecked()));
-        mDisplayTextView.setBackgroundColor(color);
+        mDisplayImageView.setColorFilter(color);
+    }
+
+    private void setImageResId(View view){
+        RadioButton radio = (RadioButton) view;
+        int id = radio.getId();
+        switch (id){
+            case R.id.rbtnSquare:{
+                mDisplayImageView.setImageResource(SQUARE_IMAGE_RES_ID);
+                break;
+            }
+            case R.id.rbtnBar:{
+                mDisplayImageView.setImageResource(BAR_IMAGE_RES_ID);
+                break;
+            }
+            case R.id.rbtnStar:{
+                mDisplayImageView.setImageResource(STAR_RES_ID);
+                break;
+            }
+        }
     }
 }
