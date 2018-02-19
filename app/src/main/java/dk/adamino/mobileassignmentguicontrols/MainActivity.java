@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onGreenClicked(View view) {
-        // TODO Green!
+        startNewActivity(GreenActivity.class);
     }
 
     /**
