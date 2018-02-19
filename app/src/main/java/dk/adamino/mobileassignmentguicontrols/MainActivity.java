@@ -1,10 +1,13 @@
 package dk.adamino.mobileassignmentguicontrols;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.CompoundButton;
+import android.widget.ToggleButton;
 import android.widget.VideoView;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,6 +20,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         setupVideoView();
+
+        Configuration config = getResources().getConfiguration();
+        if (config.orientation == Configuration.ORIENTATION_LANDSCAPE){
+            ToggleButton playPause = findViewById(R.id.tbtnPlay);
+            playPause.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if (isChecked)
+                        mVideoView.start();
+                    else
+                        mVideoView.pause();
+                }
+            });
+        }
     }
 
     private void setupVideoView() {
