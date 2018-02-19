@@ -7,7 +7,7 @@
     tools:context="dk.adamino.mobileassignmentguicontrols.HelloWorldActivity">
 
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/pbProgress"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ToggleButton
-        android:id="@+id/toggleButton"
+        android:id="@+id/tbtnValueOne"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -29,7 +29,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ToggleButton
-        android:id="@+id/toggleButton2"
+        android:id="@+id/tbtnValueTwo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -37,11 +37,11 @@
         android:layout_marginStart="8dp"
         android:text="ToggleButton"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/toggleButton3"
-        app:layout_constraintStart_toEndOf="@+id/toggleButton" />
+        app:layout_constraintEnd_toStartOf="@+id/tbtnValueThree"
+        app:layout_constraintStart_toEndOf="@+id/tbtnValueOne" />
 
     <ToggleButton
-        android:id="@+id/toggleButton3"
+        android:id="@+id/tbtnValueThree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -58,24 +58,26 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/toggleButton2"
+        app:layout_constraintBottom_toTopOf="@+id/tbtnValueTwo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
         <RadioButton
+            android:id="@+id/rbtnValueOne"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="RadioButton" />
 
         <RadioButton
+            android:id="@+id/rbtnValueTwo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="RadioButton" />
 
         <RadioButton
-            android:id="@+id/radioButton"
+            android:id="@+id/rbtnValueThree"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
