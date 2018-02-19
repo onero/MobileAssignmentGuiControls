@@ -24,7 +24,7 @@
         android:layout_marginTop="32dp"
         android:backgroundTint="@color/adaminoRed"
         android:onClick="onRasmusClicked"
-        android:text="RASMUS"
+        android:text="@string/rasmus"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/videoView"/>
 
@@ -36,7 +36,7 @@
         android:layout_marginTop="32dp"
         android:backgroundTint="@color/adaminoGreen"
         android:onClick="onGreenClicked"
-        android:text="GREEN"
+        android:text="@string/green"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/videoView"/>
 </android.support.constraint.ConstraintLayout>
