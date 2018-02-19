@@ -59,14 +59,19 @@ public class HelloWorldActivity extends AppCompatActivity {
 
         mRedToggleButton = findViewById(R.id.tbtnRed);
         mRedToggleButton.setOnCheckedChangeListener(occl);
+
         mYellowToggleButton = findViewById(R.id.tbtnYellow);
+        mYellowToggleButton.setOnCheckedChangeListener(occl);
+
         mBlueToggleButton = findViewById(R.id.tbtnBlue);
+        mBlueToggleButton.setOnCheckedChangeListener(occl);
     }
 
     private void updateDisplay(){
-        if(mRedToggleButton.isChecked())
-            mDisplayTextView.setBackgroundColor(Color.RED);
-        else
-            mDisplayTextView.setBackgroundColor(Color.WHITE);
+        int color = getResources().getColor(mColorService.getColor(
+                mRedToggleButton.isChecked(),
+                mYellowToggleButton.isChecked(),
+                mBlueToggleButton.isChecked()));
+        mDisplayTextView.setBackgroundColor(color);
     }
 }
