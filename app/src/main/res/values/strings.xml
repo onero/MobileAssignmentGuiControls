@@ -4,4 +4,5 @@
     <string name="green">GREEN</string>
     <string name="solveButton">Solve</string>
     <string name="title">Mystery Lock</string>
+    <string name="alpha_percent"> % Alpha</string>
 </resources>

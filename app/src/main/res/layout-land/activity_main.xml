@@ -47,8 +47,8 @@
         android:layout_marginTop="29dp"
         android:checked="true"
         android:text="ToggleButton"
-        android:textOff="PAUSE"
-        android:textOn="PLAY"
+        android:textOff="PLAY"
+        android:textOn="PAUSE"
         app:layout_constraintEnd_toStartOf="@+id/btnGreen"
         app:layout_constraintStart_toEndOf="@+id/btnActivityRasmus"
         app:layout_constraintTop_toBottomOf="@+id/videoView"/>
